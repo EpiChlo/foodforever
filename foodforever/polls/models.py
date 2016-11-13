@@ -1,9 +1,12 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Question(models.Model):
+    email = models.EmailField()
+    owner = models.ForeignKey(User)
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     def __str__(self):
