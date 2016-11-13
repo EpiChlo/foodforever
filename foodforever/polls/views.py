@@ -6,8 +6,16 @@ from django.views import generic
 from django.utils import timezone
 from .models import Choice, Question
 
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-class IndexView(generic.ListView):
+class LoggedInMixin(object):
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LoggedInMixin, self).dispatch(*args, **kwargs)
+
+class IndexView(LoggedInMixin, generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -17,7 +25,7 @@ class IndexView(generic.ListView):
         ).order_by('-pub_date')[:5]
 
 
-class DetailView(generic.DetailView):
+class DetailView(LoggedInMixin, generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
     def get_queryset(self):
@@ -27,7 +35,7 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 
-class ResultsView(generic.DetailView):
+class ResultsView(LoggedInMixin, generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 

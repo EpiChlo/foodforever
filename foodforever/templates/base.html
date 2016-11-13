@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<body>
+    <div>
+      {{ user }}
+      {% if user.is_anonymous %}
+      <a href="{% url 'login' %}">login</a>
+      {% else %}
+      <a href="{% url 'logout' %}">logout</a>
+      {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
