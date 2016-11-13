@@ -11,7 +11,7 @@
 <ul>
   {% for values in recipes %}
       <li>
-        <a href="{{values.source_url}}">{{values.title}}<img style="recpic" src="{{values.image_url}}" /></a>
+        <a href="{{values.source_url}}">{{values.title}}<img style="recpic" src="{{values.image_url}}" /><br><span style="font-size: .8em;">By: {{values.publisher}}</span></a>
       </li>
   {% endfor %}
 </ul>

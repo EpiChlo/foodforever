@@ -53,7 +53,9 @@ class DetailView(LoggedInMixin, generic.TemplateView):
     model = Ingredient
     template_name = 'polls/detail.html'
     def get(self, request, *args, **kwargs):
-        jsonrequest = requests.get("http://food2fork.com/api/search?key=65f31e8e5a3144c1838a3bd3d15bc959&q=chicken")
+        ingredient = get_object_or_404(Ingredient.objects.all().filter(owner=self.request.user).filter(**kwargs))
+        url = "http://food2fork.com/api/search?key=65f31e8e5a3144c1838a3bd3d15bc959&q=" + ingredient.ingredient_name
+        jsonrequest = requests.get(url)
         data = json.loads(jsonrequest.content)
         return render(request, self.template_name, {'recipes': data['recipes']})
 
