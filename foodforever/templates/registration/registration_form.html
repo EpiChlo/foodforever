@@ -2,11 +2,14 @@
 {% block title %}User Registration{% endblock %}
 {% block head %}User Registration{% endblock %}
 {% block content %}
+<div id="register" class="login">
+    <h2>Register!</h2>
     <form method="post" action=".">{% csrf_token %}
         <table border="0">
             {{ form.as_table }}
         </table>
-        <input type="submit" value="Register" />
+        <input class="submit" type="submit" value="Register" />
     </form>
     <a href="/accounts/login">Login</a>
+</div>
 {% endblock %}

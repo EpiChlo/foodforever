@@ -70,6 +70,14 @@ a:hover{
   padding-bottom: 10%;
 }
 
+#register{
+  padding-top: 2em;
+}
+
+#register form {
+  margin-left: 10%;
+}
+
 .login form{
   margin-left: 40%;
 }

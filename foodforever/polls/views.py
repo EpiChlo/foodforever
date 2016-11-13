@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 
+import json, requests
+
 from datetime import date
 
 
@@ -47,9 +49,15 @@ class IndexView(LoggedInMixin, generic.ListView):
         return Ingredient.objects.filter(owner=self.request.user).order_by('exp_date')
 
 
-class DetailView(LoggedInMixin, QuestionOwnerMixin, generic.DetailView):
+class DetailView(LoggedInMixin, generic.ListView):
     model = Ingredient
     template_name = 'polls/detail.html'
+    request = requests.get("http://food2fork.com/api/search?key=65f31e8e5a3144c1838a3bd3d15bc959&q=chicken")
+    data = json.loads(request.content)
+    print(data)
+
+    def get_object(self, queryset= None):
+        return queryset.get(data = self.data)
 
 
 class ResultsView(LoggedInMixin, QuestionOwnerMixin, generic.DetailView):

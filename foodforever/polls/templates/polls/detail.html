@@ -6,13 +6,21 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' ingredient.id %}" method="post">
-{% csrf_token %}
-{% for choice in ingredient.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
+{% if landing_dict.ingredients %}
+<h1>SWAGG</h1>
+{% endif %}
+
+{{data_values.count}}
+
+<ul>
+  {% for key, values in data.items %}
+      <li>
+        for{% for v in values.items %}
+          <br>
+          Value: {{ v }}
+        {% endfor %}
+      </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
