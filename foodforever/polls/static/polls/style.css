@@ -1,3 +1,11 @@
+/*
+#1D1E18
+#6B8F71
+#80A1D4
+#A9D3EE
+#DED9E2
+*/
+
 body{
   background-color: #A9D3EE;
   margin: 0;
@@ -14,7 +22,7 @@ body{
   box-shadow: 2px 4px #27496d;
   border-radius: 2px;
   padding-bottom: 1em;
-  width: 100vw;
+  width: 100vw;/var/www/www_my_domain_com_wsgi.py
 }
 
 #id {
