@@ -2,25 +2,19 @@
 
 {% block content %}
 
-<h1>{{ ingredient.ingredient_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% if landing_dict.ingredients %}
-<h1>SWAGG</h1>
-{% endif %}
 
-{{data_values.count}}
+<div class="reclist">
 
 <ul>
-  {% for key, values in data.items %}
+  {% for values in recipes %}
       <li>
-        for{% for v in values.items %}
-          <br>
-          Value: {{ v }}
-        {% endfor %}
+        <a href="{{values.source_url}}">{{values.title}}<img style="recpic" src="{{values.image_url}}" /></a>
       </li>
   {% endfor %}
 </ul>
 
+</div>
 {% endblock %}

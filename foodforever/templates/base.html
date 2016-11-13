@@ -6,17 +6,19 @@
 <body>
     <div class="header">
       {% if user.is_anonymous %}
+      <h1 align="center" id="head">ForeverFood</h1>
       <a href="/accounts/login">login</a>
       {% else %}
       <p id="id">
       Current User:<br>
       {{ user }}
       </p>
-
+      <h1 align="center" id="head">ForeverFood</h1>
       <a href="/accounts/logout">logout</a>
       {% endif %}
-      <h1 align="center" id="head">ForeverFood</h1>
+
     </div>
+
     {% block content %}
     {% endblock %}
 </body>

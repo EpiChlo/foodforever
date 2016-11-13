@@ -8,11 +8,13 @@ body{
 .header {
   background-color: #80A1D4;
   font-weight: bold;
+  text-align: center;
   padding-top: 1%;
   color: #1D1E18;
   box-shadow: 2px 4px #27496d;
   border-radius: 2px;
-  margin-bottom: 5px;
+  padding-bottom: 1em;
+  width: 100vw;
 }
 
 #id {
@@ -23,14 +25,15 @@ body{
   padding: .5em;
   margin-left: 1em;
   display: inline-block;
+  float: left;
+
 }
 
 #head {
   text-align: center;
   display: inline-block;
-  clear: none;
   padding: 1em;
-  margin-left: 35%;
+
   margin-bottom: 1em;
   font-size: 1.2em;
   background-color: #A9D3EE;
@@ -106,10 +109,18 @@ a:hover{
   list-style: none;
   display: inline-block;
   width: 53%;
+  float: left;
+  margin-left: 2%;
+}
+
+h1{
+  margin-left: 2em;
+  margin-bottom: 0;
 }
 
 .indexlist li{
-  width: 100%;
+  float: left;
+  width: 90%;
 }
 
 .indexlist li a{
@@ -119,6 +130,7 @@ a:hover{
   margin: 1em;
   padding: 1em;
   width: 100%;
+
 
 }
 
@@ -144,4 +156,41 @@ a:hover{
 
 .adding input{
   margin-bottom: .5em;
+}
+
+.reclist{
+    list-style: none;
+    display: inline-block;
+    float: left;
+    margin-left: 2%;
+}
+
+
+.reclist li{
+  float: left;
+  width: 90%;
+}
+
+.reclist li a{
+  float: left;
+  text-align: center;
+  background-color: #DED9E2;
+  margin: 1em;
+  padding: 1em;
+  width: 90%;
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+.reclist li a img {
+  max-width: 60%;
+  max-width: 200px;
+  max-height: 200px;
+  float: right;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
 }

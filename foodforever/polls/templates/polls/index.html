@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if latest_ingredient_list %}
+  <h1>Your Ingredients:</h1>
     <ul class="indexlist">
     {% for ingredient in latest_ingredient_list %}
         <li><a href="{% url 'polls:detail' ingredient.id %}"><span class="name">{{ ingredient.ingredient_name }}</span><br>Expiration Date: {{ingredient.exp_date}}</a></li>
@@ -15,8 +16,10 @@
   <h3>Add an Ingredient</h3>
   <form action="{% url 'polls:vote' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="ingredient_name" />
-    <input type="date" name="exp_date" />
+    <span style="font-size: .9em;">Ingredient Name:</span>
+    <input type="text" name="ingredient_name"/>
+    <span style="font-size: .95em;">Expiration Date:</span>
+    <input type="date" name="exp_date" /><br>
     <input type='submit' value="Add" />
   </form>
 </div>

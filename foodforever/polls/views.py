@@ -49,15 +49,13 @@ class IndexView(LoggedInMixin, generic.ListView):
         return Ingredient.objects.filter(owner=self.request.user).order_by('exp_date')
 
 
-class DetailView(LoggedInMixin, generic.ListView):
+class DetailView(LoggedInMixin, generic.TemplateView):
     model = Ingredient
     template_name = 'polls/detail.html'
-    request = requests.get("http://food2fork.com/api/search?key=65f31e8e5a3144c1838a3bd3d15bc959&q=chicken")
-    data = json.loads(request.content)
-    print(data)
-
-    def get_object(self, queryset= None):
-        return queryset.get(data = self.data)
+    def get(self, request, *args, **kwargs):
+        jsonrequest = requests.get("http://food2fork.com/api/search?key=65f31e8e5a3144c1838a3bd3d15bc959&q=chicken")
+        data = json.loads(jsonrequest.content)
+        return render(request, self.template_name, {'recipes': data['recipes']})
 
 
 class ResultsView(LoggedInMixin, QuestionOwnerMixin, generic.DetailView):
