@@ -1,7 +1,139 @@
-body {
-  background: white;
+body{
+  background-color: #A9D3EE;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
 }
 
-li a {
-  color: green;
+.header {
+  background-color: #80A1D4;
+  font-weight: bold;
+  padding-top: 1%;
+  color: #1D1E18;
+  box-shadow: 2px 4px #27496d;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+#id {
+  background-color: #A9D3EE;
+  box-shadow: 2px 3px #27496d;
+  border-radius: 2px;
+  font-size: 1.2em;
+  padding: .5em;
+  margin-left: 1em;
+  display: inline-block;
+}
+
+#head {
+  text-align: center;
+  display: inline-block;
+  clear: none;
+  padding: 1em;
+  margin-left: 35%;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  background-color: #A9D3EE;
+  box-shadow: 2px 3px #27496d;
+  border-radius: 2px;
+}
+
+a {
+    float: right;
+    text-decoration: none;
+    color: #1D1E18;
+    margin-top: 2em;
+    margin-right: 1.5em;
+    padding: .5em;
+    background-color: #A9D3EE;
+    box-shadow: 2px 4px #27496d;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+a:hover{
+  transform: translate(1px, 2px);
+  box-shadow: 1px 2px #27496d;
+}
+
+.login{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 3%;
+  padding-top: 10em;
+  display: block;
+  text-align: center;
+  background-color: #DED9E2;
+  box-shadow: 2px 4px #27496d;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  padding-bottom: 10%;
+}
+
+.login form{
+  margin-left: 40%;
+}
+
+.login .submit{
+  margin-top: 5%;
+  margin-left: -50%;
+  text-decoration: none;
+  color: #1D1E18;
+  margin-top: 2em;
+  margin-right: 1.5em;
+  padding: .5em;
+  background-color: #A9D3EE;
+  box-shadow: 2px 4px #27496d;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.login .submit:hover{
+  transform: translate(1px, 2px);
+  box-shadow: 1px 2px #27496d;
+}
+
+.indexlist {
+  list-style: none;
+  display: inline-block;
+  width: 53%;
+}
+
+.indexlist li{
+  width: 100%;
+}
+
+.indexlist li a{
+  float: left;
+  text-align: center;
+  background-color: #DED9E2;
+  margin: 1em;
+  padding: 1em;
+  width: 100%;
+
+}
+
+.name{
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.adding {
+  width: 30%;
+  background-color: #80A1D4;
+  font-weight: bold;
+  margin-right: 5%;
+  padding-top: 1%;
+  color: #1D1E18;
+  float: right;
+  box-shadow: 2px 4px #27496d;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-top: 4em;
+}
+
+.adding input{
+  margin-bottom: .5em;
 }

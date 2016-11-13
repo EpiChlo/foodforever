@@ -2,14 +2,23 @@
 
 {% block content %}
 
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+{% if latest_ingredient_list %}
+    <ul class="indexlist">
+    {% for ingredient in latest_ingredient_list %}
+        <li><a href="{% url 'polls:detail' ingredient.id %}"><span class="name">{{ ingredient.ingredient_name }}</span><br>Expiration Date: {{ingredient.exp_date}}</a></li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No ingredients added.</p>
 {% endif %}
+<div class="adding">
+  <h3>Add an Ingredient</h3>
+  <form action="{% url 'polls:vote' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="ingredient_name" />
+    <input type="date" name="exp_date" />
+    <input type='submit' value="Add" />
+  </form>
+</div>
 
 {% endblock %}

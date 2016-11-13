@@ -1,15 +1,21 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 
 <body>
-    <div>
-      {{ user }}
+    <div class="header">
       {% if user.is_anonymous %}
-      <a href="{% url 'login' %}">login</a>
+      <a href="/accounts/login">login</a>
       {% else %}
-      <a href="{% url 'logout' %}">logout</a>
+      <p id="id">
+      Current User:<br>
+      {{ user }}
+      </p>
+
+      <a href="/accounts/logout">logout</a>
       {% endif %}
+      <h1 align="center" id="head">ForeverFood</h1>
     </div>
     {% block content %}
     {% endblock %}
